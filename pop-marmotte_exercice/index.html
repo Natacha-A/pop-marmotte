@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr-ca">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>Pop Marmottes</title>
+    </head>
+    <body>
+        <div id="logo"></div>
+        <div id="champ">
+            <!-- MARMOTTES: Par défaut les marmottes sont à l'intérieur du trou (méthode getin())-->
+            <marmotte v-for="index in nb" ref="marmotte" :num="index" @getin="popMarmotte(index)"></marmotte>
+        </div>
+        <script src="jscripts/main.js"></script>
+    </body>
+</html>

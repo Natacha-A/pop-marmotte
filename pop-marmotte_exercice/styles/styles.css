@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #dbe6be;
+}
+
+#logo {
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1060px;
+  height: 170px;
+  background-image: url("../images/logo.png");
+  background-size: cover;
+}
+
+#champ {
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1060px;
+  grid-template-columns: repeat(5, 200px);
+  gap: 15px;
+}
+#champ .trou-container {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+#champ .trou-container .trou {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+#champ .trou-container .trou .sol {
+  z-index: 1;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-image: URL("../images/trou.png");
+}
+#champ .trou-container .trou .marmotte {
+  z-index: 0;
+  position: absolute;
+  top: 200px;
+  width: 200px;
+  height: 200px;
+  background-image: URL("../images/marmotte.png");
+  transition-duration: 100ms;
+}
+#champ .trou-container--is-out {
+  top: 0px;
+  transition-duration: 200ms;
+}/*# sourceMappingURL=styles.css.map */
