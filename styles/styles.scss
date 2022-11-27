@@ -47,6 +47,16 @@ body {
                 width: 200px;
                 height: 200px;
                 background-image: url('../images/marmotte.png');
+                transition-duration: 100ms; //Durée pour l'entrée
+            }
+        }
+
+        &--out {
+            .trou {
+                .marmotte {
+                    top: 0px; //Faire apparaître la marmotte
+                    transition-duration: 200ms; //Durée pour la sortie
+                }
             }
         }
     }

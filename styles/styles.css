@@ -47,4 +47,9 @@ body {
   width: 200px;
   height: 200px;
   background-image: url("../images/marmotte.png");
+  transition-duration: 100ms;
+}
+#champ .trou-container--out .trou .marmotte {
+  top: 0px;
+  transition-duration: 200ms;
 }/*# sourceMappingURL=styles.css.map */

@@ -13,23 +13,22 @@ const app = Vue.createApp({
             setTimeout( () => {
 
                 this.popMarmotte();
-                //console.log("mounted");
+                console.log("mounted");
             }, 200);
         });
     },
     methods: {
         //Méthode random et references marmotte
         popMarmotte(index = -1) {
-            var marmotteID = Math.round(Math.random() * this.num) -1;
-
+            
             //Si la valeur de l'id de la marmotte = à celle dans l'index faire apparaître une autre marmotte
-            if(marmotteID == index) {
+            do { var marmotteID = Math.round(Math.random() * this.num) -1; }
+            while(marmotteID == index );
 
-                //Récupérer la référence avec le nombre récupéré dans marmotteID
-                this.$refs.marmotte[marmotteID -1].getOut();
-
-                console.log("popMarmotte");
-            }
+            //Récupérer la référence avec le nombre récupéré dans marmotteID
+            this.$refs.marmotte[marmotteID -1].getOut();
+            console.log("popMarmotte");
+    
         }
     }
 });
