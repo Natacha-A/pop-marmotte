@@ -23,43 +23,31 @@ body {
     grid-template-columns: repeat(5, 200px);
     gap: 15px;
 
-     //Position relative et overflow hidden
     .trou-container {
-        position: relative;
-        left: 0px;
-        top: 0px;
         overflow: hidden;
+        position: relative;
 
         .trou {
             position: relative;
             width: 200px;
             height: 200px;
 
-            //Positionner les marmottes et les trous dans une position fixe (absolute)
             .sol {
                 z-index: 1;
                 position: absolute;
                 width: 200px;
                 height: 200px;
-                background-image: URL("../images/trou.png");
+                background-image: url('../images/trou.png');
             }
 
             .marmotte {
                 z-index: 0;
                 position: absolute;
-                top: 200px; //Cacher les marmottes en bas du sol. À cause du overflow hidden du container les marmottes vont être caché.
+                top: 200px; //Cacher les marmottes par défaut
                 width: 200px;
                 height: 200px;
-                background-image: URL("../images/marmotte.png");
-                transition-duration: 100ms; //Faire une durée de transition pour l'entrée 
+                background-image: url('../images/marmotte.png');
             }
-        }
-       
-        //Ajouter la class est sortie au trou-container
-        //Durée de transition pour la sortie
-        &--is-out {
-            top: 0px;
-            transition-duration: 200ms;
         }
     }
  }

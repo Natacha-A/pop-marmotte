@@ -11,9 +11,10 @@
     </head>
     <body>
         <div id="logo"></div>
+        <!--Parent = champ, Enfant = marmotte-->
         <div id="champ">
             <!-- MARMOTTES: Par défaut les marmottes sont à l'intérieur du trou (méthode getin())-->
-            <marmotte v-for="index in nb" ref="marmotte" :num="index" @getin="popMarmotte(index)"></marmotte>
+            <marmotte v-for="index in nb" refs="marmotte" :num="index" @getin="popMarmotte(index)"></marmotte>
         </div>
         <script src="jscripts/main.js"></script>
     </body>

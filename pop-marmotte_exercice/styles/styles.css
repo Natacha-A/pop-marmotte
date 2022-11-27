@@ -25,10 +25,8 @@ body {
   gap: 15px;
 }
 #champ .trou-container {
-  position: relative;
-  left: 0px;
-  top: 0px;
   overflow: hidden;
+  position: relative;
 }
 #champ .trou-container .trou {
   position: relative;
@@ -40,7 +38,7 @@ body {
   position: absolute;
   width: 200px;
   height: 200px;
-  background-image: URL("../images/trou.png");
+  background-image: url("../images/trou.png");
 }
 #champ .trou-container .trou .marmotte {
   z-index: 0;
@@ -48,10 +46,5 @@ body {
   top: 200px;
   width: 200px;
   height: 200px;
-  background-image: URL("../images/marmotte.png");
-  transition-duration: 100ms;
-}
-#champ .trou-container--is-out {
-  top: 0px;
-  transition-duration: 200ms;
+  background-image: url("../images/marmotte.png");
 }/*# sourceMappingURL=styles.css.map */
