@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+    <html lang="fr-ca">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>Pop Marmotte - Instructions</title>
+        <style>
+            @charset "UTF-8";
+            @import url("https://fonts.googleapis.com/css?family=Roboto");
+            * {
+               box-sizing: border-box;
+            }
+
+            body {
+                background-color: #dbe6be;
+                font-family: Roboto;
+                font-size: 24px;
+                color: #555;
+            }
+
+            #logo {
+                margin-top: 40px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 1060px;
+                height: 170px;
+                background-image: url("images/logo.png");
+                background-size: cover;
+            }
+
+            #instructions {
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 40px;
+                width: 1060px;
+                display: flex;
+                flex-direction: column;
+            }
+            #instructions .instruction {
+                padding: 12px 12px 12px 12px;
+                cursor: pointer;
+            }
+            #instructions .instruction:nth-child(odd) {
+                background-color: #cbd6ab;
+            }
+            #instructions .instruction:hover {
+                background-color: #ca824d;
+                transition-duration: 250ms;
+                color: #000;
+            }
+            #instructions .instruction.check {
+                color: #dbe6be;
+                background-color: #ca824d;
+                text-decoration: line-through;
+            }
+            #instructions .instruction.check::after {
+                content: " ✓";
+            }
+        </style>
+    </head>
+    <body>
+        <div id="logo"></div>
+        <div id="instructions">
+            <instruction v-for="instruction in instructions" :num="instruction.num" :text="instruction.text">
+        </div>
+        <script>
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        instructions: [
+                            {
+                                num: 1,
+                                text: "Le nombre de marmottes doit pouvoir être configuré dans l'app, initialement 15.",
+                            },
+                            {
+                                num: 2,
+                                text: "Chaque marmotte doit avoir 200px de haut et 200px de large.",
+                            },
+                            {
+                                num: 3,
+                                text: "Toutes les marmottes doivent être initialement cachées.",
+                            },
+                            {
+                                num: 4,
+                                text: "Le choix de la marmotte qui sort doit se faire de manière aléatoire et doit être différente de la marmotte précédente.",
+                            },
+                            {
+                                num: 5,
+                                text: "La première marmotte doit sortir après 200ms.",
+                            },
+                            {
+                                num: 6,
+                                text: "Le temps qu'une marmotte reste sortie doit être aléatoire entre 1 et 5 secondes.",
+                            },
+                            {
+                                num: 7,
+                                text: "Le temps de transition doit être de 200ms pour la sortie et 100ms pour l'entrée.",
+                            },
+                            {
+                                num: 8,
+                                text: "Lorsqu'une marmotte entre dans son trou, l'app doit être notifiée afin de choisir la prochaine.",
+                            },
+                            {
+                                num: 9,
+                                text: "Si on passe la sourie au dessus d'une marmotte sortie, elle doit automatiquement entrer dans son trou, émettre un cri et notifier l'app qu'elle est entrée dans son trou.",
+                            },
+                        ],
+                    }
+                },
+
+            });
+
+            app.component('instruction', {
+                props: ['num', 'text'],
+                data() {
+                    return {
+                        check: false,
+                    }
+                },
+                methods: {
+                    checkClick(event) {
+                        if(this.check) {
+                            event.currentTarget.classList.remove('check');
+                            this.check = false;
+                        } else {
+                            event.currentTarget.classList.add('check');
+                            this.check = true;
+                        }
+                        
+                    },
+                },
+                template: `
+                <div class="instruction" @click="checkClick($event)">
+                    <strong>{{ num }}.</strong> {{ text }}
+                </div>`
+            });
+
+
+            app.mount('#instructions');
+        </script>
+    </body>
+</html>

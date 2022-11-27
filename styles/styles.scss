@@ -1,0 +1,54 @@
+* { box-sizing: border-box; }
+
+body {
+    background-color: #dbe6be;
+}
+
+#logo {
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1060px;
+    height: 170px;
+    background-image: url("../images/logo.png");
+    background-size: cover;
+}
+
+
+#champ {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1060px;
+    grid-template-columns: repeat(5, 200px);
+    gap: 15px;
+
+    .trou-container {
+        overflow: hidden;
+        position: relative;
+
+        .trou {
+            position: relative;
+            width: 200px;
+            height: 200px;
+
+            .sol {
+                z-index: 1;
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                background-image: url('../images/trou.png');
+            }
+
+            .marmotte {
+                z-index: 0;
+                position: absolute;
+                top: 200px; //Cacher les marmottes par défaut
+                width: 200px;
+                height: 200px;
+                background-image: url('../images/marmotte.png');
+            }
+        }
+    }
+ }
+
