@@ -22,11 +22,11 @@ const app = Vue.createApp({
         popMarmotte(index = -1) {
             
             //Si la valeur de l'id de la marmotte = à celle dans l'index faire apparaître une autre marmotte
-            do { var marmotteID = Math.round(Math.random() * this.num) -1; }
+            do { var marmotteID = Math.round(Math.random() * this.nb) + 1; }
             while(marmotteID == index );
 
             //Récupérer la référence avec le nombre récupéré dans marmotteID
-            this.$refs.marmotte[marmotteID -1].getOut();
+            this.$refs.marmotte[marmotteID-1].getOut();
             console.log("popMarmotte");
     
         }
@@ -66,7 +66,7 @@ app.component('marmotte', {
                 this.getIn();
 
                 //Communiquer avec le parent à l'aide de $emit
-                this.marmotte.$emit('getin');
+                this.$emit('getin');
             }
         },
 
@@ -79,7 +79,7 @@ app.component('marmotte', {
             //Récupérer l'id du component de la marmotte (marmotte_) (dans html) et sont numéro
             //Ajouter la classe trou-container--out au trou-container
             //Récupérer l'id de l'enfant et sont numéro et ajouter la class trou-container--out
-            document.getElementById('marmotte' + this.num)
+            document.getElementById('marmotte_' + this.num)
                 .classList.add('trou-container--out');
             
             //Mettre un timer sur la propriété exécuté lors du survole
@@ -100,18 +100,16 @@ app.component('marmotte', {
             this.state = 'in';
 
             //Retirer la classe trou-container--out
-            document.getElementById('marmotte' + this.num)
+            document.getElementById('marmotte_' + this.num)
                 .classList.remove('trou-container--out');
         }
     },
     //template = comme boucle js. Fait afficher plusieurs éléments avec un petit bloc de code
     template: 
-    `<div :id="'marmotte_ '+num" class="trou-container" @mouseover="hover()">
-        <div class="trou-container">
-            <div class="trou">
-                <div class="sol"></div>
-                <div class="marmotte"></div>
-            </div>
+    `<div :id="'marmotte_'+num" class="trou-container" @mouseover="hover()">
+        <div class="trou">
+            <div class="sol"></div>
+            <div class="marmotte"></div>
         </div>
     </div>`
 });
